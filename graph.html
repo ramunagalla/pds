@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gross Revenue by Release Year</title>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+</head>
+<body>
+    <div id="barChart" style="width: 100%; height: 600px;"></div>
+    <script>
+        // Data for years and corresponding gross revenue (in billions)
+        var years = [2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010,
+                     2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019, 2020];
+        var grossRevenue = [2.097819e9, 1.123919e9, 1.487002e9, 1.446651e9, 1.023769e9,
+                            1.199286e9, 9.79398e8, 1.828106e9, 2.937171e9, 2.490222e9,
+                            1.092346e9, 2.542616e9, 1.285357e9, 2.755629e9, 2.462337e9,
+                            2.595557e9, 2.061313e9, 2.607757e9, 2.406743e9, 0];
+
+        // Plotly configuration for bar chart
+        var data = [{
+            x: years,
+            y: grossRevenue,
+            type: 'bar',
+            marker: { color: 'skyblue' }
+        }];
+
+        var layout = {
+            title: 'Total Gross Revenue by Release Year (Movies Released After 2000)',
+            xaxis: { title: 'Year of Release', tickangle: -45 },
+            yaxis: { title: 'Gross Revenue (in billions)', tickformat: '$,.0f' },
+            margin: { t: 60, b: 80 }
+        };
+
+        Plotly.newPlot('barChart', data, layout);
+    </script>
+</body>
+</html>
